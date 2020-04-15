@@ -1,4 +1,4 @@
-package com.seven.distributed.uaa;
+package com.seven.distributed.order;
 
 import org.springframework.boot.SpringApplication;
 import org.springframework.boot.autoconfigure.SpringBootApplication;
@@ -16,7 +16,7 @@ import org.springframework.cloud.openfeign.EnableFeignClients;
 @SpringBootApplication
 @EnableDiscoveryClient
 @EnableHystrix
-@EnableFeignClients(basePackages = "com.seven.distributed.uaa")
+@EnableFeignClients(basePackages = "com.seven.distributed.order")
 public class UAAServer {
 
     public static void main(String[] args) {

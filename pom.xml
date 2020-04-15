@@ -10,6 +10,7 @@
     <modules>
         <module>seven-uaa</module>
         <module>seven-order</module>
+        <module>seven-common</module>
     </modules>
     <packaging>pom</packaging>
 
