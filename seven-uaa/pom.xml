@@ -11,10 +11,20 @@
 
     <artifactId>seven-uaa</artifactId>
     <dependencies>
-        <!--<dependency>
+        <!--
+            springboot2.x eureka客户端需要添加上eureka-server依赖
+            springboot1.x eureka客户端需要添加上spring-cloud-starter-eureka依赖
+        -->
+        <dependency>
             <groupId>org.springframework.cloud</groupId>
-            <artifactId>spring‐cloud‐starter‐netflix‐eureka‐client</artifactId>
-        </dependency>-->
+            <artifactId>spring-cloud-starter-netflix-eureka-server</artifactId>
+        </dependency>
+
+
+        <dependency>
+            <groupId>org.springframework.cloud</groupId>
+            <artifactId>spring-cloud-netflix-eureka-client</artifactId>
+        </dependency>
         <dependency>
             <groupId>org.springframework.cloud</groupId>
             <artifactId>spring-cloud-starter-netflix-hystrix</artifactId>

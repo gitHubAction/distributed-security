@@ -26,7 +26,7 @@ spring:
     password: root
     driver-class-name: com.mysql.jdbc.Driver
 server:
-  port: 53020
+  port: 53021
   tomcat:
     port-header: x-forwarded-for
     protocol-header: x-forwarded-proto
@@ -54,3 +54,10 @@ feign:
       min-request-size: 2048
     response:
       enabled: true
+eureka:
+  client:
+    service-url:
+      defaultZone: http://localhost:8761/eureka/
+  instance:
+    prefer-ip-address: true
+    instance-id: ${spring.application.name}:${spring.cloud.client.ipaddress}:${spring.appliction.instance_id:${server.port}}

@@ -1,0 +1,23 @@
+spring:
+  application:
+    name: seven-discovery
+  main:
+    allow-bean-definition-overriding: true
+server:
+  port: 8761
+eureka:
+  server:
+    #关闭自我保护机制
+    enable-self-preservation: false
+    eviction-interval-timer-in-ms: 10000
+    #eureka是基于CAP原理中的AP，为了保证强一致性关闭切换CP功能
+    use-read-only-response-cache: true
+  client:
+    #不注册自己到注册中心
+    register-with-eureka: false
+    fetch-registry: false
+    instance-info-replication-interval-seconds: 10
+    service-url:
+      defaultZone: ${eureka.defaultZone:http://localhost:8761/eureka}
+  instance:
+    hostname: ${eureka.hostname:localhost}

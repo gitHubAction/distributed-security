@@ -11,6 +11,7 @@
         <module>seven-uaa</module>
         <module>seven-order</module>
         <module>seven-common</module>
+        <module>seven-discovery</module>
     </modules>
     <packaging>pom</packaging>
 
