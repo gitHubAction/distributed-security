@@ -1,0 +1,56 @@
+spring:
+  application:
+    name: seven-order
+  main:
+    #由于springApplication对DefaultListableBeanFactory进行封装，其内部的allowBeanDefinitionOverriding字段未赋值（false）
+    #名称相同的单例bean，后者是否覆盖前者
+    allow-bean-definition-overriding: true
+  http:
+    encoding:
+      enabled: true
+      charset: UTF-8
+      force: true
+  freemarker:
+    enabled: true
+    suffix: .html
+    request-context-attribute: rc
+    content-type: text/html
+    charset: UTF-8
+  mvc:
+    throw-exception-if-no-handler-found: true
+  resources:
+    add-mappings: false
+  datasource:
+    url: jdbc:mysql://localhost:3306/seven-oauth?useUnicode=true
+    username: root
+    password: root
+    driver-class-name: com.mysql.jdbc.Driver
+server:
+  port: 53020
+  tomcat:
+    port-header: x-forwarded-for
+    protocol-header: x-forwarded-proto
+logging:
+  level:
+    root: info
+    org:
+      springframework:
+        web: info
+#eureka.client.serviceUrl.defaultZone = http://localhost:53000/eureka/
+#eureka.instance.preferIpAddress = true
+#eureka.instance.instance-id = ${spring.application.name}:${spring.cloud.client.ipaddress}:${spring.application.instance_id:${server.port}}
+management:
+  endpoints:
+    web:
+      exposure:
+        include: ["refresh","health","info","env"]
+feign:
+  hystrix:
+    enabled: true
+  compression:
+    request:
+      enabled: true
+      mime-types: ["text/html","application/xml","application/json"]
+      min-request-size: 2048
+    response:
+      enabled: true

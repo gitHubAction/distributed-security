@@ -17,9 +17,9 @@ import org.springframework.cloud.openfeign.EnableFeignClients;
 @EnableDiscoveryClient
 @EnableHystrix
 @EnableFeignClients(basePackages = "com.seven.distributed.order")
-public class UAAServer {
+public class SevenOrderServer {
 
     public static void main(String[] args) {
-        SpringApplication.run(UAAServer.class,args);
+        SpringApplication.run(SevenOrderServer.class,args);
     }
 }
