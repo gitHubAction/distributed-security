@@ -1,0 +1,45 @@
+spring:
+  application:
+    name: seven-gateway
+  main:
+    #由于springApplication对DefaultListableBeanFactory进行封装，其内部的allowBeanDefinitionOverriding字段未赋值（false）
+    #名称相同的单例bean，后者是否覆盖前者
+    allow-bean-definition-overriding: true
+server:
+  port: 53000
+logging:
+  level:
+    root: info
+    org:
+      springframework:
+        web: info
+feign:
+  hystrix:
+    enabled: true
+  compression:
+    request:
+      enabled: true
+      mime-types: ["text/html","application/xml","application/json"]
+      min-request-size: 2048
+    response:
+      enabled: true
+eureka:
+  client:
+    service-url:
+      defaultZone: http://localhost:8761/eureka/
+  instance:
+    prefer-ip-address: true
+    instance-id: ${spring.application.name}:${spring.cloud.client.ipaddress}:${spring.appliction.instance_id:${server.port}}
+zuul:
+  retryable: true
+  ignored-services: '*'
+  add-host-header: true
+  sensitive-headers: '*'
+  #增加uaa认证服务器和order资源服务器路由配置
+  routes:
+    seven-uaa:
+      stripPrefix: false
+      path: /uaa/**
+    seven-order:
+      stripPrefix: false
+      path: /order/**

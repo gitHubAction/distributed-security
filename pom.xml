@@ -12,6 +12,7 @@
         <module>seven-order</module>
         <module>seven-common</module>
         <module>seven-discovery</module>
+        <module>seven-zuul</module>
     </modules>
     <packaging>pom</packaging>
 

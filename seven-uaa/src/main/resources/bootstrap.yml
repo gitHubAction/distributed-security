@@ -30,6 +30,8 @@ server:
   tomcat:
     port-header: x-forwarded-for
     protocol-header: x-forwarded-proto
+  servlet:
+    context-path: /uaa
 logging:
   level:
     root: info
