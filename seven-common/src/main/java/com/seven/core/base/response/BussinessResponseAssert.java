@@ -1,6 +1,8 @@
-package com.seven.core.base.exception;
+package com.seven.core.base.response;
 
-import com.seven.core.base.response.IResponseEnum;
+import com.seven.core.base.exception.BaseException;
+import com.seven.core.base.exception.BusinessException;
+import com.seven.core.base.sevenAssert.SevenAssert;
 
 import java.text.MessageFormat;
 
@@ -11,7 +13,7 @@ import java.text.MessageFormat;
  * Author:   zsh
  * Description:
  */
-public interface BussinessExceptionAssert extends IResponseEnum,Assert {
+public interface BussinessResponseAssert extends IResponse, SevenAssert {
 
     @Override
     default BaseException newException(Object... args){
@@ -20,7 +22,7 @@ public interface BussinessExceptionAssert extends IResponseEnum,Assert {
     }
 
     @Override
-    default BaseException newException(Throwable t,Object... args){
+    default BaseException newExceptionWithThrowable(Throwable t,Object... args){
         String msg = MessageFormat.format(this.getMsg(), args);
         return new BusinessException(this,args,msg,t);
     }

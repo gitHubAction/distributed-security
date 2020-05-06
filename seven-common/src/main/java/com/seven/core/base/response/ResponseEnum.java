@@ -1,5 +1,6 @@
-package com.seven.core.base.exception;
+package com.seven.core.base.response;
 
+import com.seven.core.base.response.BussinessResponseAssert;
 import lombok.AllArgsConstructor;
 import lombok.Getter;
 
@@ -12,10 +13,10 @@ import lombok.Getter;
  */
 @Getter
 @AllArgsConstructor
-public enum ResponseEnum implements BussinessExceptionAssert {
+public enum ResponseEnum implements BussinessResponseAssert {
 
-    BAD_LINCENCE_TYPE(7001,"123"),
-    INVALID_LINCENCE(7002,"456");
+    BAD_PRINCIPAL(7001,"无效的认证"),
+    PRINCIPAL_NOT_FOUND(7002,"认证信息未找到");
 
 
     private int code;

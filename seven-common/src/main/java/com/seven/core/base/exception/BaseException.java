@@ -1,6 +1,6 @@
 package com.seven.core.base.exception;
 
-import com.seven.core.base.response.IResponseEnum;
+import com.seven.core.base.response.IResponse;
 import lombok.AllArgsConstructor;
 import lombok.Data;
 import lombok.ToString;
@@ -17,7 +17,7 @@ import java.io.Serializable;
 @Data
 @AllArgsConstructor
 @ToString
-public class BaseException extends Throwable implements Serializable {
+public class BaseException extends RuntimeException implements Serializable {
 
 
     private static final long serialVersionUID = 4381259240958026998L;
@@ -26,10 +26,10 @@ public class BaseException extends Throwable implements Serializable {
 
     private String msg;
 
-    public BaseException(IResponseEnum responseEnum, Object[] args, String msg) {
+    public BaseException(IResponse responseEnum, Object[] args, String msg) {
     }
 
-    public BaseException(IResponseEnum responseEnum, Object[] args, String msg,Throwable t) {
+    public BaseException(IResponse responseEnum, Object[] args, String msg, Throwable t) {
     }
 
 }

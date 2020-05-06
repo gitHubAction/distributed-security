@@ -7,7 +7,7 @@ package com.seven.core.base.response;
  * Author:   zsh
  * Description:
  */
-public interface IResponseEnum {
+public interface IResponse {
     int getCode();
 
     String getMsg();

@@ -1,6 +1,6 @@
 package com.seven.core.base.exception;
 
-import com.seven.core.base.response.IResponseEnum;
+import com.seven.core.base.response.IResponse;
 
 /**
  * ClassName:    BusinessException
@@ -13,11 +13,11 @@ public class BusinessException extends BaseException {
 
     private static final long serialVersionUID = 4193584474229424491L;
 
-    public BusinessException(IResponseEnum responseEnum, Object[] args, String msg, Throwable cause) {
+    public BusinessException(IResponse responseEnum, Object[] args, String msg, Throwable cause) {
         super(responseEnum, args, msg, cause);
     }
 
-    public BusinessException(IResponseEnum responseEnum, Object[] args, String msg) {
+    public BusinessException(IResponse responseEnum, Object[] args, String msg) {
         super(responseEnum, args, msg);
     }
 }
