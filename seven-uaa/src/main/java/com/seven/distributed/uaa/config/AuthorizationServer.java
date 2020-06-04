@@ -72,7 +72,7 @@ public class AuthorizationServer extends AuthorizationServerConfigurerAdapter {
                 .withClient("seven")
                 .secret(new BCryptPasswordEncoder().encode("123456"))
                 .resourceIds("res1")
-                //四种授权类型  授权码模式、账户密码模式、客户端模式、简单模式
+                //四种授权类型  授权码模式、账户密码模式、客户端模式、简单模式   refresh_token刷新token(拿token换token)
                 .authorizedGrantTypes("authorization_code","password","client_credentials","implicit","refresh_token")
                 .scopes("all")
                 .autoApprove(false)
